@@ -1,15 +1,41 @@
 package data;
 
+import Optionals.Bike;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Student {
     private String name;
     private int gradeLevel;
     private double gpa;
     private String gender;
+
+    public Optional<Bike> getBike() {
+        return bike;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", gradeLevel=" + gradeLevel +
+                ", gpa=" + gpa +
+                ", gender='" + gender + '\'' +
+                ", activities=" + activities +
+                ", notebooks=" + notebooks +
+                ", bike=" + bike +
+                '}';
+    }
+
+    public void setBike(Optional<Bike> bike) {
+        this.bike = bike;
+    }
+
     List<String> activities = new ArrayList<>();
     private int notebooks;
+    private Optional<Bike> bike = Optional.empty();
 
     public Student(String name, int gradeLevel, double gpa, String gender, List<String> activities, int notebooks) {
         this.name = name;
@@ -86,17 +112,6 @@ public class Student {
 
     public void setActivities(List<String> activities) {
         this.activities = activities;
-    }
-
-    @Override
-    public String toString() {
-        return "Student{" +
-                "name='" + name + '\'' +
-                ", gradeLevel=" + gradeLevel +
-                ", gpa=" + gpa +
-                ", gender='" + gender + '\'' +
-                ", activities=" + activities +
-                '}';
     }
 
 
